@@ -22,8 +22,8 @@ class ProjectsScreen extends StatelessWidget {
               content: 'Descrição: Criei um site de portfólio pessoal usando HTML, CSS e JavaScript para mostrar meu trabalho e experiência.',
             ),
             CustomCard(
-              title: 'Jogo de Quebra-Cabeça',
-              content: 'Descrição: Desenvolvi um jogo de quebra-cabeça em Unity para dispositivos móveis, disponível nas lojas de aplicativos.',
+              title: 'Aplicativo Mais Saúde',
+              content: 'Descrição: Desenvolvi Aplicativo para auxliar ps pacientes a ter atendimento em postos de saúde.',
             ),
           ],
         ),

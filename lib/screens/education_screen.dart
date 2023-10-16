@@ -16,16 +16,24 @@ class EducationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CustomCard(
-              title: 'Bacharel em Ciência da Computação',
-              content: 'Universidade XYZ\nAno de Conclusão: 20XX',
+              title: 'Graduanda em Sistemas de informação',
+              content: 'Centro Cultural Newton Paiva\nAno de Conclusão: 2023',
             ),
             CustomCard(
-              title: 'Mestrado em Desenvolvimento de Software',
-              content: 'Universidade ABC\nAno de Conclusão: 20XX',
+              title: 'Tecnica em eletronica',
+              content: 'CEFET\nAno de Conclusão: 2012',
             ),
             CustomCard(
               title: 'Certificado em Desenvolvimento Mobile',
-              content: 'Instituto de Tecnologia 123\nAno de Conclusão: 20XX',
+              content: 'Instituto de Tecnologia 123\nAno de Conclusão: 2023',
+            ),
+            CustomCard(
+              title: 'Certificado em Desenvolvimento Web',
+              content: 'Instituto de Tecnologia 123\nAno de Conclusão: 2022',
+            ),
+            CustomCard(
+              title: 'Certificado em Desenvolvimento Java',
+              content: 'Instituto de Tecnologia 123\nAno de Conclusão: 2023',
             ),
           ],
         ),

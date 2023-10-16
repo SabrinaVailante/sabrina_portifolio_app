@@ -19,20 +19,23 @@ class AboutScreen extends StatelessWidget {
               content: 'Sou um desenvolvedor de aplicativos móveis apaixonado por criar aplicativos incríveis com Flutter.',
             ),
             CustomCard(
-              title: 'Experiência',
+              title: 'Experiência - Linha do tempo de xp',
               content: 'Trabalhei em várias empresas de desenvolvimento de software e tenho experiência em projetos de grande escala.',
             ),
             CustomCard(
-              title: 'Habilidades',
+              title: 'Habilidades - grafico de linha em cada uma das habilidades',
               content: 'Domino linguagens como Dart, JavaScript, e tenho experiência em desenvolvimento web e móvel.',
             ),
             CustomCard(
-              title: 'Educação',
-              content: 'Bacharel em Ciência da Computação na Universidade X.',
+              title: 'Educação linha do tempo de habilidades',
+              content: 'Bacharel em Sistems de Informação na Universidade Newton Paiva.',
+            ), CustomCard(
+              title: 'Hobbies',
+              content: 'Bacharel em Sistems de Informação na Universidade Newton Paiva.',
             ),
             CustomCard(
               title: 'Contato',
-              content: 'Email: meuemail@example.com\nTelefone: (123) 456-7890',
+              content: 'Email: sabrinavailante@hotmail.com\nTelefone: ((31) 9 9835-7032\n LINKEDIN',
             ),
           ],
         ),
