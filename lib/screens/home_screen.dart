@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'about_screen.dart';
+import 'aperfeicoando_screen.dart';
 import 'experience_screen.dart';
 import 'education_screen.dart';
 import 'projects_screen.dart';
@@ -47,6 +48,13 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => ProjectsScreen()));
               },
               child: Text('Projetos'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AperfeicoandoScreen()));
+              },
+              child: Text('Aperfeiçoando...'),
             ),
           ],
         ),
