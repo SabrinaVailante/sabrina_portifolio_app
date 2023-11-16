@@ -3,7 +3,7 @@
    <application
         android:label="sabrina_protifolio_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic532554">
         <activity
             android:name=".MainActivity"
             android:exported="true"

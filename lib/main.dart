@@ -11,9 +11,11 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       title: "Meu Portfólio",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple
       ),
       home: SplashScreen(),
+
+
     );
 
   }
