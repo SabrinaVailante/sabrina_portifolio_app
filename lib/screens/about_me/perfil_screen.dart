@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabrina_protifolio_app/screens/about_me/contato.dart';
 import 'package:sabrina_protifolio_app/screens/about_screen.dart';
 import 'package:sabrina_protifolio_app/screens/my_education/my_education_screen.dart';
 import 'package:sabrina_protifolio_app/screens/my_experiences/my_experiences_screen.dart';
@@ -20,7 +21,7 @@ class PerfilScreen extends StatelessWidget {
                 Container(
                   width: 300, // Defina a largura desejada para o círculo maior
                   height: 300, // Defina a altura desejada para o círculo maior
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color.fromRGBO(183, 131, 193,
                         1.0), // Defina a cor desejada para o círculo maior
@@ -114,13 +115,13 @@ class PerfilScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
                           children: [
-                            Text("1",
+                            const Text("1",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 50,
@@ -128,7 +129,7 @@ class PerfilScreen extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Text("Ano",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -142,7 +143,7 @@ class PerfilScreen extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Text("|",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -151,7 +152,7 @@ class PerfilScreen extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Text("30",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -165,7 +166,7 @@ class PerfilScreen extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Text("|",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -174,7 +175,7 @@ class PerfilScreen extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Text("Graduada",
                                 style: TextStyle(
                                     color: Colors.white,
@@ -206,17 +207,17 @@ class PerfilScreen extends StatelessWidget {
                     const SizedBox(height: 15),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(184, 132, 194, 1),
-                          onPrimary: Color.fromRGBO(70, 50, 109, 1),
+                          primary: const Color.fromRGBO(184, 132, 194, 1),
+                          onPrimary: const Color.fromRGBO(70, 50, 109, 1),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 50,
                             vertical: 20,
                           ),
                         ),
                         onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text('Botão pressionado!')),
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ContactScreen()),
                           );
                         },
                         child: const Text('Contacte-me')),
