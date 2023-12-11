@@ -14,8 +14,50 @@ class PerfilScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(
-              width: double.infinity,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 300, // Defina a largura desejada para o círculo maior
+                  height: 300, // Defina a altura desejada para o círculo maior
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(183, 131, 193,
+                        1.0), // Defina a cor desejada para o círculo maior
+                  ),
+                ),
+                Container(
+                  width: 280, // Defina a largura desejada para o círculo maior
+                  height: 280, // Defina a altura desejada para o círculo maior
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(47, 11, 105,
+                        1.0), // Defina a cor desejada para o círculo maior
+                  ),
+                ),
+                Container(
+                  width: 260, // Defina a largura desejada para o círculo maior
+                  height: 260, // Defina a altura desejada para o círculo maior
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(182, 130, 192,
+                        1.0), // Defina a cor desejada para o círculo maior
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Center(
+                    child: ClipOval(
+                      child: Container(
+                        width: 250,
+                        height: 250,
+                        color: Colors.white,
+                        child: Image.asset("assets/images/img.png"),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Align(
@@ -163,14 +205,14 @@ class PerfilScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromRGBO(184, 132, 194, 1),
-                        onPrimary: Color.fromRGBO(70, 50, 109, 1),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 50,
-                          vertical: 20,
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(184, 132, 194, 1),
+                          onPrimary: Color.fromRGBO(70, 50, 109, 1),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 50,
+                            vertical: 20,
+                          ),
                         ),
-                      ),
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
@@ -178,7 +220,6 @@ class PerfilScreen extends StatelessWidget {
                           );
                         },
                         child: const Text('Contacte-me')),
-                    
                   ],
                 ),
               )),

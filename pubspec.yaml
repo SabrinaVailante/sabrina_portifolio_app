@@ -90,6 +90,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/images/foto1.png
+    - assets/images/img.png
     - assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
     - assets/fonts/Montserrat-VariableFont_wght.ttf
 
