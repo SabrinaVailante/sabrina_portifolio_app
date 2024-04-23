@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sabrina_protifolio_app/screens/about_me/perfil_screen.dart';
-import 'package:sabrina_protifolio_app/screens/about_screen.dart';
-import 'package:sabrina_protifolio_app/screens/education_screen.dart';
-import 'package:sabrina_protifolio_app/screens/experience_screen.dart';
 import 'package:sabrina_protifolio_app/screens/my_education/my_education_screen.dart';
 import 'package:sabrina_protifolio_app/screens/my_experiences/my_experiences_screen.dart';
 import 'package:sabrina_protifolio_app/screens/my_hobbies/my_hobbies_screen.dart';
@@ -35,25 +32,25 @@ class _MenuNavegavelState extends State<MenuNavegavel> {
       },
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.heart_broken_rounded, color: Colors.purple,),
+          icon: Icon(Icons.heart_broken_rounded, color: Colors.cyanAccent,),
           label: 'Hobbies',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.work, color: Colors.purple,),
+          icon: Icon(Icons.work, color: Colors.cyanAccent,),
           label: 'Experiências'
           ,
 
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person, color: Colors.purple,),
+          icon: Icon(Icons.person, color: Colors.cyanAccent,),
           label: 'Perfil',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school, color: Colors.purple,),
+          icon: Icon(Icons.school, color: Colors.cyanAccent,),
           label: 'Educação',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.phone_android, color: Colors.purple,),
+          icon: Icon(Icons.phone_android, color: Colors.cyanAccent,),
           label: 'Projetos',
         ),
 

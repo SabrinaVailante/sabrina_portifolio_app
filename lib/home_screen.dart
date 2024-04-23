@@ -38,24 +38,29 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.heart_broken, color: Colors.purple),
+            icon: Icon(Icons.heart_broken, color: Color.fromRGBO(
+                31, 139, 147, 1.0)),
             label: 'Hobbies',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work, color: Colors.purple),
+            icon: Icon(Icons.work, color: Color.fromRGBO(
+                31, 139, 147, 1.0)),
             label: 'Experiencias',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.purple),
+            icon: Icon(Icons.person, color: Color.fromRGBO(
+                31, 139, 147, 1.0)),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school, color: Colors.purple),
+            icon: Icon(Icons.school, color: Color.fromRGBO(
+                31, 139, 147, 1.0)),
             label: 'Educação',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phone_android,
-            color: Colors.purple),
+                color: Color.fromRGBO(
+                    31, 139, 147, 1.0)),
             label: 'Projetos',
           ),
           

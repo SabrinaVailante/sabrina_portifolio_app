@@ -1,63 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sabrina_protifolio_app/screens/about_me/contato.dart';
-import 'package:sabrina_protifolio_app/screens/about_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_education/my_education_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_experiences/my_experiences_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_projects/my_projects_screen.dart';
-import '../aperfeicoando_screen.dart';
-import '../projects_screen.dart';
+
 
 class PerfilScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(47, 11, 105, 1),
+      backgroundColor: const Color.fromRGBO(138, 226, 231, 1.0),
       body: Column(
         children: [
           Expanded(
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Container(
-                  width: 300, // Defina a largura desejada para o círculo maior
-                  height: 300, // Defina a altura desejada para o círculo maior
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(183, 131, 193,
-                        1.0), // Defina a cor desejada para o círculo maior
-                  ),
-                ),
-                Container(
-                  width: 280, // Defina a largura desejada para o círculo maior
-                  height: 280, // Defina a altura desejada para o círculo maior
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(47, 11, 105,
-                        1.0), // Defina a cor desejada para o círculo maior
-                  ),
-                ),
-                Container(
-                  width: 260, // Defina a largura desejada para o círculo maior
-                  height: 260, // Defina a altura desejada para o círculo maior
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(182, 130, 192,
-                        1.0), // Defina a cor desejada para o círculo maior
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  child: Center(
-                    child: ClipOval(
-                      child: Container(
-                        width: 250,
-                        height: 250,
-                        color: Colors.white,
-                        child: Image.asset("assets/images/img.png"),
-                      ),
-                    ),
-                  ),
-                ),
+                Lottie.asset('assets/lottie/perfil.json'),
+                Positioned(top: 80,left:80, child: Container(
+                  width: 245
+                  , child: ClipOval(child: Image.asset('assets/images/img.png'))),
+                )
+
               ],
             ),
           ),
@@ -65,14 +27,15 @@ class PerfilScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
-                height: 350,
+                height: 380,
                 decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color.fromRGBO(63, 16, 148, 1.0),
-                      Color.fromRGBO(140, 88, 224, 1.0),
+                      Color.fromRGBO(16, 74, 79, 1.0),
+                      Color.fromRGBO(84, 228, 243, 1.0),
                     ],
                   ),
                 ),
@@ -87,7 +50,7 @@ class PerfilScreen extends StatelessWidget {
                             Text(
                               "Sabrina Vailante",
                               style: TextStyle(
-                                fontSize: 40,
+                                fontSize: 30,
                                 color: Colors.white,
                                 fontFamily: "Montserrat-VariableFont_wght.ttf",
                               ),
@@ -96,7 +59,7 @@ class PerfilScreen extends StatelessWidget {
                             Text(
                               "Desenvolvedora Mobile",
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 15,
                                 color: Colors.white,
                                 fontFamily: "Montserrat",
                               ),
@@ -105,7 +68,7 @@ class PerfilScreen extends StatelessWidget {
                             Text(
                               "Belo Horizonte - MG",
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 10,
                                 color: Colors.white,
                                 fontFamily: "Montserrat",
                                 fontWeight: FontWeight.normal,
@@ -115,7 +78,7 @@ class PerfilScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -190,7 +153,7 @@ class PerfilScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 10),
                     const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Center(
@@ -207,8 +170,8 @@ class PerfilScreen extends StatelessWidget {
                     const SizedBox(height: 15),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: const Color.fromRGBO(184, 132, 194, 1),
-                          onPrimary: const Color.fromRGBO(70, 50, 109, 1),
+                          primary: const Color.fromRGBO(34, 109, 114, 1.0),
+                          onPrimary: const Color.fromRGBO(196, 251, 255, 1.0),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 50,
                             vertical: 20,

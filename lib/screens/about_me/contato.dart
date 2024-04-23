@@ -5,7 +5,7 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(75, 21, 121, 1.0),
+      backgroundColor: Color.fromRGBO(84, 228, 243, 1.0),
       appBar: AppBar(
         title: Text('Meus Contatos'),
       ),
@@ -83,9 +83,9 @@ class ContactCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color.fromRGBO(130, 78, 158, 1.0),
+      color: Color.fromRGBO(31, 139, 147, 1.0),
       child: ListTile(
-        leading: Icon(icon),
+        leading: Icon(icon, color: Colors.white),
         title: Text(
           title,
           style: const TextStyle(

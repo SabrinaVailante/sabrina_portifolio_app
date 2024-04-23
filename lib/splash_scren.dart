@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Container(
             color:
-                const Color.fromRGBO(75, 21, 122, 0.5), // Cor roxa com transparência
+                const Color.fromRGBO(21, 98, 122, 0.5019607843137255), // Cor roxa com transparência
           ),
           Center(
             child: Column(
