@@ -6,6 +6,8 @@ Este é um aplicativo de portfólio pessoal criado com o Flutter, uma estrutura 
 
 [vou Inserir capturas de tela do aplicativo aqui (futuramente)]
 
+https://www.figma.com/file/rEtRHDbbkXDVFjR8n1uQJn/Untitled?type=design&node-id=11-332&mode=design&t=7wktcog0tWUTr444-0
+
 ## Funcionalidades ( em desenvolvimento )
 
 - **Tela Inicial:** Uma tela inicial com uma saudação e botões de navegação para acessar diferentes seções do portfólio.
