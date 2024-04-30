@@ -7,7 +7,7 @@ class PerfilScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(138, 226, 231, 1.0),
+      backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       body: Column(
         children: [
           Expanded(

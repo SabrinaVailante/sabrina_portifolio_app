@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Aguarda 2 segundos e, em seguida, navega para a próxima tela
-    Timer(const Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => HomeScreen() // Tela de destino
       ));
@@ -37,10 +37,10 @@ class _SplashScreenState extends State<SplashScreen> {
             color:
                 const Color.fromRGBO(21, 98, 122, 0.5019607843137255), // Cor roxa com transparência
           ),
-          Center(
+          const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Bem Vindo!",
                   style: TextStyle(

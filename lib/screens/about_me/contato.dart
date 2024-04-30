@@ -5,7 +5,7 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(84, 228, 243, 1.0),
+      backgroundColor: Color.fromRGBO(0, 0, 0, 1.0),
       appBar: AppBar(
         title: Text('Meus Contatos'),
       ),

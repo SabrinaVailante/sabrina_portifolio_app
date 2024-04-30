@@ -14,10 +14,6 @@ class PortfolioApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: SplashScreen(),
-
-
     );
-
-
   }
 }
