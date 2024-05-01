@@ -12,7 +12,7 @@ class AboutMeView extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
-        title: Text('Sobre mim'),
+        title: Text('Sobre mim', style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1.0), fontWeight: FontWeight.bold),),
       ),
       body: Column(
         children: [
