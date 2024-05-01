@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/splash_screen/view/splash_screen_view.dart';
 
 void main() {
-  runApp(PortfolioApp());
+  runApp(const PortfolioApp());
 }
 
 class PortfolioApp extends StatelessWidget {
+  const PortfolioApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +15,7 @@ class PortfolioApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreenView(),
+      home: const SplashScreenView(),
     );
   }
 }
