@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/profile/view/contacts_view.dart';
 import 'package:sabrina_protifolio_app/screens/about_me/contato.dart';
 
 class ProfileView extends StatelessWidget {
@@ -173,7 +174,7 @@ class ProfileView extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ContactScreen()),
+                                builder: (context) => ContactsView()),
                           );
                         },
                         child: const Text('Contacte-me')),
