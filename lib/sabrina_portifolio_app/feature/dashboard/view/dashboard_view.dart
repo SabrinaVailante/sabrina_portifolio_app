@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/academic_bckgroud_view.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/academic_backgroud_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/career_journey/view/career_journey_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/hobbies/view/hobbies_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/my_projects/view/projects_view.dart';
@@ -17,9 +17,9 @@ class _DashboardViewState extends State<DashboardView> {
 
   final List<Widget> _pages = [
     const HobbiesView(),
-    const AcademicBackgroudView(),
+    const AcademicBackgroundView(),
     const ProfileView(),
-    const CarrerJourneyView(),
+     CareerJourneyView(),
     const MyProjectsView(),
   ];
 

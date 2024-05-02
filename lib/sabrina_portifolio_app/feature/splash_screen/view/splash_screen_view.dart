@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:sabrina_protifolio_app/home_screen.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/dashboard/view/dashboard_view.dart';
 
 class SplashScreenView extends StatefulWidget {
