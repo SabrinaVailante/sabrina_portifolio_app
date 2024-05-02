@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/academic_bckgroud_view.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/career_journey/view/career_journey_view.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/hobbies/view/hobbies_view.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/my_projects/view/projects_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/profile/view/profile_view.dart';
-import 'package:sabrina_protifolio_app/screens/my_education/my_education_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_experiences/my_experiences_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_hobbies/my_hobbies_screen.dart';
-import 'package:sabrina_protifolio_app/screens/my_projects/my_projects_screen.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -16,11 +16,11 @@ class _DashboardViewState extends State<DashboardView> {
   int _currentIndex = 2;
 
   final List<Widget> _pages = [
-    MyHobbiesScreen(),
-    MyExperiencesScreen(),
+    const HobbiesView(),
+    const AcademicBackgroudView(),
     const ProfileView(),
-    MyEducationScreen(),
-    MyProjectsScreen(),
+    const CarrerJourneyView(),
+    const MyProjectsView(),
   ];
 
   @override
@@ -42,16 +42,16 @@ class _DashboardViewState extends State<DashboardView> {
             label: 'Hobbies',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work, color: Color.fromRGBO(31, 139, 147, 1.0)),
-            label: 'Experiencias',
+            icon: Icon(Icons.school, color: Color.fromRGBO(31, 139, 147, 1.0)),
+            label: 'Educação',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, color: Color.fromRGBO(31, 139, 147, 1.0)),
             label: 'Perfil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school, color: Color.fromRGBO(31, 139, 147, 1.0)),
-            label: 'Educação',
+            icon: Icon(Icons.work, color: Color.fromRGBO(31, 139, 147, 1.0)),
+            label: 'Experiencias',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.phone_android,

@@ -20,7 +20,7 @@ class AboutMeView extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 0),
+                  padding: const EdgeInsets.only(top: 0),
                   width: double.infinity,
                   child: Image.asset(
                     'assets/images/img.png',
@@ -85,7 +85,6 @@ class AboutMeView extends StatelessWidget {
                                       fontSize: 15,
                                       fontFamily: "RobotoMono-Regular",
                                     )),
-
                               ],
                             ),
                           ),

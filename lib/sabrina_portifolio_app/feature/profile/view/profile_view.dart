@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/profile/view/about_me_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/profile/view/contacts_view.dart';
-import 'package:sabrina_protifolio_app/screens/about_me/contato.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

@@ -7,8 +7,8 @@ class ContactsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('Meus Contatos', style: TextStyle(color: Colors.white)),
+        iconTheme: IconThemeData(color: Color.fromRGBO(0, 0, 0, 1)),
+        title: Text('Meus Contatos', style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
         backgroundColor: Color.fromRGBO(13, 193, 215, 1.0),
 
       ),
