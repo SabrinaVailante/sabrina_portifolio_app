@@ -28,7 +28,7 @@ class _CompanyDetailsViewState extends State<CompanyDetailsView> {
         backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,19 +56,10 @@ class _CompanyDetailsViewState extends State<CompanyDetailsView> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Text(
-                      '2021 - 2024',
-                      style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1.0),
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 30),
               SingleChildScrollView(
                 child: Text(
                   description,
@@ -94,36 +85,44 @@ class _CompanyDetailsViewState extends State<CompanyDetailsView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 15),
-        Text(
-          'Cargo: ',
-          style: TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1.0),
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          'Auxiliar Administrativo',
-          style: TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1.0),
-            fontSize: 14,
-          ),
+        Row(
+          children: [
+            Text(
+              'Cargo: ',
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 1.0),
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Auxiliar Administrativo',
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 1.0),
+                fontSize: 14,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 15),
-        Text(
-          "Período: ",
-          style: TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1.0),
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          '2022 á 2024',
-          style: TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1.0),
-            fontSize: 14,
-          ),
+        Row(
+          children: [
+            Text(
+              "Período: ",
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 1.0),
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              '2022 á 2024',
+              style: TextStyle(
+                color: Color.fromRGBO(255, 255, 255, 1.0),
+                fontSize: 14,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 15),
         Text(

@@ -20,7 +20,7 @@ class _DashboardViewState extends State<DashboardView> {
     const AcademicBackgroundView(),
     const ProfileView(),
      CareerJourneyView(),
-    const MyProjectsView(),
+     MyProjectsView(),
   ];
 
   @override
