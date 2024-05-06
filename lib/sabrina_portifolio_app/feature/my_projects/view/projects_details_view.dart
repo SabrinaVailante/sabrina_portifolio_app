@@ -12,7 +12,7 @@ class ProjectDetailView extends StatefulWidget {
 }
 
 class _ProjectDetailViewState extends State<ProjectDetailView> {
-  String descricao = loremIpsum(words: 50, paragraphs: 3);
+  String descricao = loremIpsum(words: 100, paragraphs: 3);
 
   @override
   Widget build(BuildContext context) {

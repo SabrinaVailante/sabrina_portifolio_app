@@ -18,8 +18,8 @@ class ProfileView extends StatelessWidget {
               children: [
                 Lottie.asset('assets/lottie/perfil.json'),
                 Positioned(
-                  top: 90,
-                  left: 80,
+                  top: 65,
+                  left: 70,
                   child: SizedBox(
                       width: 245,
                       child: GestureDetector(

@@ -16,7 +16,7 @@ class _DashboardViewState extends State<DashboardView> {
   int _currentIndex = 2;
 
   final List<Widget> _pages = [
-    const HobbiesView(),
+     HobbiesView(),
     const AcademicBackgroundView(),
     const ProfileView(),
      CareerJourneyView(),
