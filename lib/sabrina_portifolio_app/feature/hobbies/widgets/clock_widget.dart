@@ -13,8 +13,8 @@ class _ClockWidgetState extends State<ClockWidget> {
   @override
   void initState() {
     super.initState();
-    // Atualizar o tempo a cada segundo
-    Timer.periodic(Duration(seconds: 1), (timer) {
+
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _currentTime = DateTime.now();
       });
@@ -23,12 +23,12 @@ class _ClockWidgetState extends State<ClockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       height: 200,
       child: GestureDetector(
         onPanUpdate: (details) {
-          // Lógica para mover os ponteiros aqui
+
         },
         child: CustomPaint(
           painter: ClockPainter(_currentTime),
@@ -52,7 +52,6 @@ class ClockPainter extends CustomPainter {
       Paint()..color = Colors.black,
     );
 
-    // Desenhar os ponteiros
     drawHourHand(canvas, size);
     drawMinuteHand(canvas, size);
     drawSecondHand(canvas, size);
@@ -64,11 +63,12 @@ class ClockPainter extends CustomPainter {
   }
 
   void drawHourHand(Canvas canvas, Size size) {
-    final hourAngle = (360 / 12) * (time.hour % 12) + (360 / 12 / 60) * time.minute;
+    final hourAngle =
+        (360 / 12) * (time.hour % 12) + (360 / 12 / 60) * time.minute;
     final hourRadians = hourAngle * pi / 180;
     final hourHandLength = size.width * 0.2;
     final hourHandPaint = Paint()
-      ..color = Color.fromRGBO(36, 166, 173, 1.0)
+      ..color = const Color.fromRGBO(36, 166, 173, 1.0)
       ..strokeWidth = 5
       ..strokeCap = StrokeCap.round;
 
@@ -83,11 +83,12 @@ class ClockPainter extends CustomPainter {
   }
 
   void drawMinuteHand(Canvas canvas, Size size) {
-    final minuteAngle = (360 / 60) * time.minute + (360 / 60 / 60) * time.second;
+    final minuteAngle =
+        (360 / 60) * time.minute + (360 / 60 / 60) * time.second;
     final minuteRadians = minuteAngle * pi / 180;
     final minuteHandLength = size.width * 0.3;
     final minuteHandPaint = Paint()
-      ..color = Color.fromRGBO(20, 87, 91, 1.0)
+      ..color = const Color.fromRGBO(20, 87, 91, 1.0)
       ..strokeWidth = 3
       ..strokeCap = StrokeCap.round;
 

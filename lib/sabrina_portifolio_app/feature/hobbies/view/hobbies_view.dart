@@ -31,22 +31,22 @@ class _HobbiesViewState extends State<HobbiesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+      backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
-        title: Text(
-          'Hobbies',
-          style: TextStyle(
-              color: Color.fromRGBO(0, 0, 0, 1.0), fontWeight: FontWeight.bold),
-        ),
-      ),
+          backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
+          title: const Text('Hobbies',
+              style: TextStyle(
+                  color: Color.fromRGBO(0, 0, 0, 1.0),
+                  fontWeight: FontWeight.bold))),
       body: Center(
         child: Stack(
           children: [
             ..._buildCircleHobbies(),
             Positioned(
-              left: MediaQuery.of(context).size.width / 2 - 100, // Ajuste a posição horizontal do relógio
-              top: MediaQuery.of(context).size.height / 2 - 100, // Ajuste a posição vertical do relógio
+              left: MediaQuery.of(context).size.width / 2 -
+                  100, // Ajusta a posição horizontal do relógio
+              top: MediaQuery.of(context).size.height / 2 -
+                  100, // Ajusta a posição vertical do relógio
               child: ClockWidget(),
             ),
           ],
@@ -57,8 +57,8 @@ class _HobbiesViewState extends State<HobbiesView> {
 
   List<Widget> _buildCircleHobbies() {
     List<Widget> circles = [];
-    final double radius = 140.0; // Raio do círculo
-    final double initialAngle =
+    const double radius = 140.0; // Raio do círculo
+    const double initialAngle =
         -pi / 2; // Ângulo inicial para posicionar os widgets
     final double incrementAngle =
         (2 * pi) / _icons.length; // Ângulo entre cada widget
@@ -88,17 +88,15 @@ class _HobbiesViewState extends State<HobbiesView> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CircleAvatar(
+        radius: 25,
+        backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
         child: GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HobbieDetailView()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HobbieDetailView()));
             },
             child: icon),
-        radius: 25,
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
       ),
     );
   }
-
-
 }
