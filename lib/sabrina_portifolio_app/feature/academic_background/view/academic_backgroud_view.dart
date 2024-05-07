@@ -12,7 +12,7 @@ class AcademicBackgroundView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
         title: const Text(
-          'Formação Acadêmica',
+          'Formação Acadêmica',textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
