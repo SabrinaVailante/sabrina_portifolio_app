@@ -31,6 +31,24 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/ios/Flutter/Flutter.framework/
+/ios/Flutter/Flutter.podspec
+/ios/.symlinks/
+/ios/Pods/
+/ios/Runner.xcworkspace/
+/ios/build/
+/macos/Pods/
+/macos/.symlinks/
+/macos/Flutter/Flutter.framework/
+/macos/Flutter/Flutter.podspec
+/macos/Flutter/ephemeral/
+/macos/build/
+/linux/flutter/ephemeral/
+/linux/build/
+/windows/flutter/ephemeral/
+/windows/build/
+/web/.dart_tool/
+/web/build/
 
 # Symbolication related
 app.*.symbols
@@ -42,4 +60,19 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-pubspec.lock
+
+# Emulators
+**/*.keystore
+**/google-services.json
+**/firebase-service.json
+
+# JetBrains related
+.idea/*
+*.iml
+*.ipr
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
