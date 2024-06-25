@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
 
 class ProjectDetailView extends StatefulWidget {
   const ProjectDetailView({Key? key});
@@ -18,14 +19,8 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
-        title: Text(
-          'Nome do projeto',
-          style: TextStyle(
-              color: Color.fromRGBO(0, 0, 0, 1.0), fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: const SabrinaAppBarWidget(
+          icon: Icon(Icons.arrow_back), title: "Projeto 1", actions: []),
       body: Column(
         children: [
           Expanded(
@@ -56,7 +51,7 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
                     ),
                   ),
                 ),
-                 Padding(
+                Padding(
                   padding: EdgeInsets.only(top: 380),
                   child: Column(
                     children: [

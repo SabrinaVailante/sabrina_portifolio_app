@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
 
 class AboutMeView extends StatelessWidget {
   const AboutMeView({Key? key});
@@ -10,10 +8,7 @@ class AboutMeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
-        title: Text('Sobre mim', style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1.0), fontWeight: FontWeight.bold),),
-      ),
+      appBar: SabrinaAppBarWidget( actions: [], icon: const Icon(Icons.arrow_back), title: "Sobre Mim",),
       body: Column(
         children: [
           Expanded(

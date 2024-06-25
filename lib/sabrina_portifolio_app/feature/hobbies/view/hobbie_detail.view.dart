@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
 
 class HobbieDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
-        title: Text('Hobbies'),
+      appBar: SabrinaAppBarWidget(
+        icon: Icon(Icons.arrow_back),
+        title: "Hobbies",
         actions: [
           IconButton(
-            icon: Icon(Icons.add_box_outlined),
+            icon: const Icon(Icons.add_box_outlined),
             onPressed: () {},
           ),
           IconButton(
@@ -29,7 +30,6 @@ class HobbieDetailView extends StatelessWidget {
           return HobbyPostCard(index: index);
         },
       ),
-
     );
   }
 }

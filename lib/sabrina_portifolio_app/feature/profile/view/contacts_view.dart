@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/widgets/sabrina_app_bar.widget.dart';
+
 class ContactsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Color.fromRGBO(0, 0, 0, 1)),
-        title: Text('Meus Contatos', style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1))),
-        backgroundColor: Color.fromRGBO(13, 193, 215, 1.0),
-
-      ),
+      appBar: const SabrinaAppBarWidget( actions: [], icon: Icon(Icons.arrow_back), title: "Meus Contatos",),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/my_projects/view/projects_details_view.dart';
 
 class MyProjectsView extends StatefulWidget {
@@ -22,15 +23,10 @@ class _MyProjectsViewState extends State<MyProjectsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        title: Text(
-          'Meus Projetos',
-          style: TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 1.0),
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Color.fromRGBO(36, 167, 174, 1.0),
+      appBar: SabrinaAppBarWidget(
+        icon: Icon(Icons.arrow_back),
+        title: "Meus Projetos",
+        actions: [],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

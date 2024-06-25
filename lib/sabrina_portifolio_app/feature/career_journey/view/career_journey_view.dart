@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/career_journey/view/company_details_view.dart';
 
+import '../../../core/widgets/sabrina_app_bar.widget.dart';
+
 class CareerJourneyView extends StatefulWidget {
   const CareerJourneyView({super.key});
 
@@ -13,14 +15,7 @@ class _CareerJourneyViewState extends State<CareerJourneyView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
-        title: const Text(
-          'Carreira profissional',
-          style: TextStyle(
-              color: Color.fromRGBO(0, 0, 0, 1.0), fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: const SabrinaAppBarWidget(  actions: [],icon: Icon(Icons.arrow_back), title: "Carreira Profissional",),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(

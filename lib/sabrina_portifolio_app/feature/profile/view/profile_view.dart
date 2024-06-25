@@ -18,15 +18,15 @@ class ProfileView extends StatelessWidget {
               children: [
                 Lottie.asset('assets/lottie/perfil.json'),
                 Positioned(
-                  top: 65,
-                  left: 70,
+                  top: 95,
+                  left: 80,
                   child: SizedBox(
-                      width: 245,
+                      width:240,
                       child: GestureDetector(
                         onTap:(){
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => AboutMeView(),
+                              builder: (context) => const AboutMeView(),
                             ),
                           );
                         },
@@ -91,7 +91,7 @@ class ProfileView extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Text("1",
+                            Text("3",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 50,
@@ -100,7 +100,7 @@ class ProfileView extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Text("Ano",
+                            Text("Anos",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 30,
@@ -123,7 +123,7 @@ class ProfileView extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Text("30",
+                            Text("31",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 30,
@@ -165,7 +165,7 @@ class ProfileView extends StatelessWidget {
                         padding: EdgeInsets.all(8.0),
                         child: Center(
                             child: Text(
-                                "Desenvolvedora Mobile a 1 ano na Defensoria pública de Minas Gerais, com linguagem principal o Dart e framework Flutter.",
+                                "Desenvolvedora Mobile a 3 anos na Defensoria pública de Minas Gerais, com linguagem principal o Dart e framework Flutter.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white)))),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/certificate_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/widgets/card_certificado_widget.dart';
 
+import '../../../core/widgets/sabrina_app_bar.widget.dart';
+
 class AcademicBackgroundView extends StatelessWidget {
   const AcademicBackgroundView({Key? key}) : super(key: key);
 
@@ -9,15 +11,10 @@ class AcademicBackgroundView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
-        title: const Text(
-          'Formação Acadêmica',textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+      appBar: const SabrinaAppBarWidget(
+        actions: [],
+        icon: Icon(Icons.arrow_back),
+        title: "Formação Acadêmica",
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -51,7 +48,10 @@ class AcademicBackgroundView extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            //TODO: Implementar Download
+            _downloadCertificate();
+          },
           icon: const Icon(Icons.download,
               color: Color.fromRGBO(36, 166, 173, 1.0)),
         ),
@@ -136,16 +136,18 @@ class AcademicBackgroundView extends StatelessWidget {
       body: ListView(
         children: [
           CardCertificateWidget(
-            imagePath: "assets/images/img.png",
-            title1: 'Bacharel em Sistemas de Informação',
-            title2: 'Newton Paiva',
-            title3: "",
-            dateStart: DateTime(1984, 1, 1),
-            dateEnd: DateTime(1984, 1, 1),
+            imagePath: "assets/cetificates/Net6.jpg",
+            title1: '.Net 6 web API - Do zero ao avançado',
+            title2: 'Ûndemy',
+            title3: "14.5h",
+            dateEnd: DateTime(2023, 07, 11),
             function: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CertificateView()),
+                MaterialPageRoute(
+                    builder: (context) => const CertificateView(
+                        imagePath: "assets/cetificates/Net6.jpg",
+                        title: '.Net 6 web API - Do zero ao avançado')),
               );
             },
           ),
@@ -154,12 +156,14 @@ class AcademicBackgroundView extends StatelessWidget {
             title1: 'Bacharel em Sistemas de Informação',
             title2: 'Newton Paiva',
             title3: "",
-            dateStart: DateTime(1984, 1, 1),
+            // dateStart: DateTime(1984, 1, 1),
             dateEnd: DateTime(1984, 1, 1),
             function: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CertificateView()),
+                MaterialPageRoute(
+                    builder: (context) => const CertificateView(
+                        imagePath: 'assets/images/img.png', title: 't')),
               );
             },
           ),
@@ -168,17 +172,24 @@ class AcademicBackgroundView extends StatelessWidget {
             title1: 'Bacharel em Sistemas de Informação',
             title2: 'Newton Paiva',
             title3: "",
-            dateStart: DateTime(1984, 1, 1),
             dateEnd: DateTime(1984, 1, 1),
             function: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const CertificateView()),
+                MaterialPageRoute(
+                    builder: (context) => const CertificateView(
+                          imagePath: "assets/images/img.png",
+                          title: "11",
+                        )),
               );
             },
           ),
         ],
       ),
     );
+  }
+
+  void _downloadCertificate() {
+
   }
 }

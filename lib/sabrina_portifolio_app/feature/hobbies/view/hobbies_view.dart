@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/hobbies/view/hobbie_detail.view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/hobbies/widgets/clock_widget.dart';
 
@@ -32,12 +33,11 @@ class _HobbiesViewState extends State<HobbiesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
-      appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
-          title: const Text('Hobbies',
-              style: TextStyle(
-                  color: Color.fromRGBO(0, 0, 0, 1.0),
-                  fontWeight: FontWeight.bold))),
+      appBar: const SabrinaAppBarWidget(
+        icon: Icon(Icons.arrow_back),
+        title: "Hobbies",
+        actions: [],
+      ),
       body: Center(
         child: Stack(
           children: [
