@@ -1,11 +1,26 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/data/models/certificates.model.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/certificate_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/widgets/card_certificado_widget.dart';
-
 import '../../../core/widgets/sabrina_app_bar.widget.dart';
 
-class AcademicBackgroundView extends StatelessWidget {
+class AcademicBackgroundView extends StatefulWidget {
   const AcademicBackgroundView({Key? key}) : super(key: key);
+
+  @override
+  _AcademicBackgroundViewState createState() => _AcademicBackgroundViewState();
+}
+
+class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
+  List<CardCertificateWidget> _cardsCertificates = <CardCertificateWidget>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCertificates();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +29,7 @@ class AcademicBackgroundView extends StatelessWidget {
       appBar: const SabrinaAppBarWidget(
         actions: [],
         icon: Icon(Icons.arrow_back),
-        title: "Formação Acadêmica",
+        title: "Formação Acadêmica",
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,10 +63,7 @@ class AcademicBackgroundView extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {
-            //TODO: Implementar Download
-            _downloadCertificate();
-          },
+          onPressed: _downloadCertificate,
           icon: const Icon(Icons.download,
               color: Color.fromRGBO(36, 166, 173, 1.0)),
         ),
@@ -125,64 +137,23 @@ class AcademicBackgroundView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
         ),
         title: const Text(
           'Certificados',
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          CardCertificateWidget(
-            imagePath: "assets/cetificates/Net6.jpg",
-            title1: '.Net 6 web API - Do zero ao avançado',
-            title2: 'Ûndemy',
-            title3: "14.5h",
-            dateEnd: DateTime(2023, 07, 11),
-            function: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CertificateView(
-                        imagePath: "assets/cetificates/Net6.jpg",
-                        title: '.Net 6 web API - Do zero ao avançado')),
-              );
-            },
-          ),
-          CardCertificateWidget(
-            imagePath: "assets/images/img.png",
-            title1: 'Bacharel em Sistemas de Informação',
-            title2: 'Newton Paiva',
-            title3: "",
-            // dateStart: DateTime(1984, 1, 1),
-            dateEnd: DateTime(1984, 1, 1),
-            function: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CertificateView(
-                        imagePath: 'assets/images/img.png', title: 't')),
-              );
-            },
-          ),
-          CardCertificateWidget(
-            imagePath: "assets/images/img.png",
-            title1: 'Bacharel em Sistemas de Informação',
-            title2: 'Newton Paiva',
-            title3: "",
-            dateEnd: DateTime(1984, 1, 1),
-            function: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CertificateView(
-                          imagePath: "assets/images/img.png",
-                          title: "11",
-                        )),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: _cardsCertificates.length,
+              itemBuilder: (context, index) {
+                return _cardsCertificates[index];
+              },
+            ),
           ),
         ],
       ),
@@ -190,6 +161,43 @@ class AcademicBackgroundView extends StatelessWidget {
   }
 
   void _downloadCertificate() {
+    // TODO: Implementar lógica de download do certificado
+  }
 
+  Future<void> _loadCertificates() async {
+    try {
+      String jsonString =
+          await rootBundle.loadString('assets/certificados.json');
+      List<dynamic> listaJson = jsonDecode(jsonString);
+      List<CardCertificateWidget> listaCertificados = listaJson.map((e) {
+        CertificatesModel certificado = CertificatesModel.fromJson(e);
+        return CardCertificateWidget(
+          imagePath: certificado.imagemCertificado,
+          title1: certificado.nomeCurso,
+          title2: (certificado.instrutores?.isNotEmpty ?? false) ? certificado.instrutores!.last : '',
+          title3: certificado.duracao,
+          dateEnd: DateTime.parse(
+              certificado.dataConclusao ?? DateTime.now().toString()),
+          function: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CertificateView(
+                  imagePath:
+                      'https://drive.google.com/uc?export=view&id=19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx',
+                  title: certificado.nomeCurso ,
+                ),
+              ),
+            );
+          },
+        );
+      }).toList();
+
+      setState(() {
+        _cardsCertificates = listaCertificados;
+      });
+    } catch (e) {
+      print('Erro ao carregar os certificados: $e');
+    }
   }
 }

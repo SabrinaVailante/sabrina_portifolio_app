@@ -55,7 +55,7 @@ class _CertificateViewState extends State<CertificateView> {
               child: Container(
                 height: 550,
                 width: 350,
-                child: Image.asset(widget.imagePath),
+                child: Image.network(widget.imagePath,),
               ),
             ),
           ],

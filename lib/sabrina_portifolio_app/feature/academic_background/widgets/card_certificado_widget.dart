@@ -6,7 +6,6 @@ class CardCertificateWidget extends StatelessWidget {
   final String title1;
   final String title2;
   final String title3;
-
   final DateTime dateEnd;
   final VoidCallback function;
 
@@ -33,17 +32,30 @@ class CardCertificateWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4.0),
           child: Row(
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image(
-                  image: AssetImage(imagePath),
-                  width: 100,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+                child: imagePath.isNotEmpty
+                    ? Image.network(
+                        imagePath,
+                        width: 100,
+                        height: 80,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(
+                            Icons.error,
+                            size: 80,
+                            color: Colors.red,
+                          );
+                        },
+                      )
+                    : const Icon(
+                        Icons.image_not_supported,
+                        size: 80,
+                        color: Colors.grey,
+                      ),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -76,12 +88,15 @@ class CardCertificateWidget extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        Text(
-                          title3,
-                          style: const TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1.0),
-                            fontFamily: 'RobotoMono',
-                            fontSize: 12,
+                        Flexible(
+                          child: Text(
+                            title3,
+                            style: const TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                              fontFamily: 'RobotoMono',
+                              fontSize: 12,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],

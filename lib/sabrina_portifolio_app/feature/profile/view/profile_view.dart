@@ -12,29 +12,32 @@ class ProfileView extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Lottie.asset('assets/lottie/perfil.json'),
-                Positioned(
-                  top: 95,
-                  left: 80,
-                  child: SizedBox(
-                      width:240,
-                      child: GestureDetector(
-                        onTap:(){
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => const AboutMeView(),
-                            ),
-                          );
-                        },
-                        child: ClipOval(
-                            child: Image.asset('assets/images/img.png')),
-                      ) ),
-                )
-              ],
+          SizedBox(
+            //width: MediaQuery.of(context).size.width,
+            child: Expanded(
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Lottie.asset('assets/lottie/perfil.json'),
+                  Positioned(
+                    top: 95,
+                    left: 80,
+                    child: SizedBox(
+                        width: 240,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AboutMeView(),
+                              ),
+                            );
+                          },
+                          child: ClipOval(
+                              child: Image.asset('assets/images/img.png')),
+                        )),
+                  )
+                ],
+              ),
             ),
           ),
           Align(
@@ -160,7 +163,7 @@ class ProfileView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Center(
