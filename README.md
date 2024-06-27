@@ -44,17 +44,69 @@ https://www.figma.com/file/rEtRHDbbkXDVFjR8n1uQJn/Untitled?type=design&node-id=1
 
 ## Como Executar
 
-1. Certifique-se de ter o Flutter configurado em seu ambiente de desenvolvimento.
 
-2. Clone este repositório:
 
-3. Navegue até o diretório do projeto:
+### 🚀 Como Clonar e Executar Seu Projeto Flutter no Celular
 
-4. Execute o aplicativo:
+Siga estas etapas simples para clonar o repositório e executar seu aplicativo Flutter no seu dispositivo móvel!
 
-## Personalização
+#### 1. Clone o Repositório 🐙
+Abra seu terminal (ou prompt de comando) e execute o comando abaixo para clonar o repositório:
 
-????
+```sh
+git clone https://github.com/seu-usuario/seu-repositorio.git
+```
+
+ Substitua `https://github.com/seu-usuario/seu-repositorio.git` pelo URL do repositório que você deseja clonar.
+
+#### 2. Abra o Projeto no Seu Editor de Código Favorito 🎨
+Navegue até o diretório do projeto clonado:
+
+```sh
+cd seu-repositorio
+```
+
+Abra o projeto no seu editor de código favorito (por exemplo, VSCode ou Android Studio). No terminal, você pode usar:
+
+```sh
+code .
+```
+
+ou abra manualmente o diretório no seu editor.
+
+#### 3. Certifique-se de Ter o Flutter Instalado 🛠️
+Se você ainda não instalou o Flutter, siga as instruções de instalação no site oficial: [Instalação do Flutter](https://flutter.dev/docs/get-started/install).
+
+Verifique a instalação do Flutter executando:
+
+```sh
+flutter doctor
+```
+
+Certifique-se de que todas as verificações estejam concluídas sem erros.
+
+#### 4. Conecte Seu Dispositivo Móvel 📱
+Conecte seu dispositivo Android via USB e ative a depuração USB nas opções de desenvolvedor do seu telefone.
+
+Verifique se o dispositivo foi reconhecido:
+(Caso nao, verifique se as Opções de Desenvolvedor estão habilitadas e se a Depuração USB esta ativa. )
+
+```sh
+flutter devices
+```
+
+#### 5. Execute o Projeto no Dispositivo 🎉
+Com o dispositivo conectado e reconhecido, execute o seguinte comando para iniciar o aplicativo no seu celular:
+
+```sh
+flutter run
+```
+
+---
+
+Se tudo estiver configurado corretamente, o aplicativo será compilado e executado no seu dispositivo móvel. Divirta-se explorando seu app! 🚀
+
+
 
 ## Contribuições
 
