@@ -1,12 +1,28 @@
+![GitHub License](https://img.shields.io/badge/license-MIT-green)
+![Flutter](https://img.shields.io/badge/Flutter-2.10.1-blue)
+![Platform](https://img.shields.io/badge/platform-Android%20%7C%20iOS-lightgrey)
+![Contributors](https://img.shields.io/github/contributors/yourusername/gerador-de-aleatorios)
+![Issues](https://img.shields.io/github/issues/yourusername/gerador-de-aleatorios)
+![Pull Requests](https://img.shields.io/github/issues-pr/yourusername/gerador-de-aleatorios)
 # Meu Portfólio em Flutter
 
 Este é um aplicativo de portfólio pessoal criado com o Flutter, uma estrutura de desenvolvimento de aplicativos multiplataforma. O aplicativo apresenta informações sobre minha experiência, educação, projetos e habilidades de forma interativa e atraente.
 
 ## Capturas de Tela
 
-[vou Inserir capturas de tela do aplicativo aqui (futuramente)]
-
+Inspiração
 https://www.figma.com/file/rEtRHDbbkXDVFjR8n1uQJn/Untitled?type=design&node-id=11-332&mode=design&t=7wktcog0tWUTr444-0
+
+## Capturas de Tela
+<div style="display:flex; justify-content:space-around;">
+<img src="assets/images/Screenshot_20240605_105433.png" alt="Screenshot 1" width="100"/>
+<img src="assets/images/Screenshot_20240605_105443.png" alt="Screenshot 1" width="100"/>
+<img src="assets/images/Screenshot_20240605_105523.png" alt="Screenshot 1" width="100"/>
+<img src="assets/images/Screenshot_20240605_105532.png" alt="Screenshot 1" width="100"/>
+<img src="assets/images/Screenshot_20240610_105829.png" alt="Screenshot 1" width="100"/>
+<img src="assets/images/Screenshot_20240610_110047.png" alt="Screenshot 1" width="100"/>
+</div>
+
 
 ## Funcionalidades ( em desenvolvimento )
 
