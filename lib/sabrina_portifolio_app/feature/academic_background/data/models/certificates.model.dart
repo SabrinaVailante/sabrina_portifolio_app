@@ -9,7 +9,9 @@ class CertificatesModel {
   @JsonKey(name: 'duracao')
   String duracao;
   @JsonKey(name: 'instrutores')
-  List<String>? instrutores;
+  String instrutores;
+  @JsonKey(name: 'plataforma')
+  String plataforma;
   @JsonKey(name: 'data_conclusao')
   String dataConclusao;
   @JsonKey(name: 'nome_aluno')
@@ -27,6 +29,7 @@ class CertificatesModel {
     required this.nomeCurso,
     required this.duracao,
     required this.instrutores,
+    required this.plataforma,
     required this.dataConclusao,
     required this.nomeAluno,
     required this.numeroCertificado,

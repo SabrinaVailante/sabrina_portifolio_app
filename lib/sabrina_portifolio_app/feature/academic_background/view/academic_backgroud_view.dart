@@ -1,12 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:open_file/open_file.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/data/models/certificates.model.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/certificate_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/widgets/card_certificado_widget.dart';
 import '../../../core/widgets/sabrina_app_bar.widget.dart';
+import 'package:http/http.dart' as http;
 
 class AcademicBackgroundView extends StatefulWidget {
+  final String curriculoPath =
+      'assets/cetificates/Currículo_Sabrina Vailante_2024.05.pdf';
+
   const AcademicBackgroundView({Key? key}) : super(key: key);
 
   @override
@@ -63,7 +68,7 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
           ),
         ),
         IconButton(
-          onPressed: _downloadCertificate,
+          onPressed: () {},
           icon: const Icon(Icons.download,
               color: Color.fromRGBO(36, 166, 173, 1.0)),
         ),
@@ -160,10 +165,6 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
     );
   }
 
-  void _downloadCertificate() {
-    // TODO: Implementar lógica de download do certificado
-  }
-
   Future<void> _loadCertificates() async {
     try {
       String jsonString =
@@ -174,7 +175,7 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
         return CardCertificateWidget(
           imagePath: certificado.imagemCertificado,
           title1: certificado.nomeCurso,
-          title2: (certificado.instrutores?.isNotEmpty ?? false) ? certificado.instrutores!.last : '',
+          title2: certificado.plataforma,
           title3: certificado.duracao,
           dateEnd: DateTime.parse(
               certificado.dataConclusao ?? DateTime.now().toString()),
@@ -183,9 +184,8 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
               context,
               MaterialPageRoute(
                 builder: (context) => CertificateView(
-                  imagePath:
-                      'https://drive.google.com/uc?export=view&id=19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx',
-                  title: certificado.nomeCurso ,
+                  imagePath: certificado.imagemCertificado,
+                  title: certificado.nomeCurso,
                 ),
               ),
             );

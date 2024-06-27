@@ -10,9 +10,8 @@ CertificatesModel _$CertificatesModelFromJson(Map<String, dynamic> json) =>
     CertificatesModel(
       nomeCurso: json['nome_curso'] as String,
       duracao: json['duracao'] as String,
-      instrutores: (json['instrutores'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+      instrutores: json['instrutores'] as String,
+      plataforma: json['plataforma'] as String,
       dataConclusao: json['data_conclusao'] as String,
       nomeAluno: json['nome_aluno'] as String,
       numeroCertificado: json['numero_certificado'] as String?,
@@ -26,6 +25,7 @@ Map<String, dynamic> _$CertificatesModelToJson(CertificatesModel instance) =>
       'nome_curso': instance.nomeCurso,
       'duracao': instance.duracao,
       'instrutores': instance.instrutores,
+      'plataforma': instance.plataforma,
       'data_conclusao': instance.dataConclusao,
       'nome_aluno': instance.nomeAluno,
       'numero_certificado': instance.numeroCertificado,

@@ -2,72 +2,49 @@
   {
     "nome_curso": "Aprenda Flutter e Desenvolva Apps para Android e iOS 2022",
     "duracao": "60 horas",
-    "instrutores": [
-      "Leonardo Moura Leitao",
-      "Cod3r Cursos Online",
-      "Academind by Maximilian Schwarzmüller"
-    ],
+    "instrutores": "Leonardo Moura Leitao",
+    "plataforma": "UDEMY",
     "data_conclusao": "2023-11-06",
     "nome_aluno": "Sabrina Vailante",
     "numero_certificado": "UC-a160624f-d37a-4376-a4bb-55d765ecd18c",
     "url_certificado": "ude.my/UC-a160624f-d37a-4376-a4bb-55d765ecd18c",
-    "imagem_certificado":   "https://drive.google.com/uc?export=view&id=19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx",
+    "imagem_certificado": "https://drive.google.com/uc?export=view&id=19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx",
     "valido": true
   },
   {
-    "nome_curso": "Desenvolvimento Web Completo com JavaScript, HTML e CSS",
-    "duracao": "80 horas",
-    "instrutores": [
-      "Jonatan Galvão",
-      "Rocketseat"
-    ],
-    "data_conclusao": "2024-03-12",
-    "nome_aluno": "Pedro Henrique Silva",
-    "numero_certificado": "UC-b2345678-90ab-cdef-1234-567890abcdef",
-    "url_certificado": "ude.my/UC-b2345678-90ab-cdef-1234-567890abcdef",
-    "imagem_certificado": "https://drive.google.com/file/d/19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx/view?usp=drive_link",
+    "nome_curso": ".Net 6 web API - Do zero ao avançado",
+    "duracao": "14,5 horas",
+    "instrutores": "Stephany Henrique de Almeida Batista",
+    "plataforma": "UDEMY",
+    "data_conclusao": "2023-11-07",
+    "nome_aluno": "Sabrina Vailante",
+    "numero_certificado": "UC-5f4492e5-b213-4c4a-845d-f14532262971",
+    "url_certificado": "ude.my/UC-5f4492e5-b213-4c4a-845d-f14532262971",
+    "imagem_certificado": "https://drive.google.com/uc?export=download&id=1IS3MqH-cVSGZCTJLbx9oiG5e_KVOeApf",
     "valido": true
   },
   {
-    "nome_curso": "Aprenda Git e Github para Controle de Versão",
-    "duracao": "30 horas",
-    "instrutores": [
-      "Renato França",
-      "Alura"
-    ],
-    "data_conclusao": "2024-05-20",
-    "nome_aluno": "Maria Clara Oliveira",
-    "numero_certificado": "UC-c1234567-890a-bcde-f123-4567890abcde",
-    "url_certificado": "ude.my/UC-c1234567-890a-bcde-f123-4567890abcde",
-    "imagem_certificado": "https://drive.google.com/file/d/19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx/view?usp=drive_link",
+    "nome_curso": " O curso completo de Banco de Dados e SQL, sem mistérios!",
+    "duracao": "58 horas",
+    "instrutores": "Felipe Mafra",
+    "plataforma": "UDEMY",
+    "data_conclusao": "2023-03-01",
+    "nome_aluno": "Sabrina Vailante",
+    "numero_certificado": "UC-d7c1ec46-7810-4c97-b78d-bca721b00475",
+    "url_certificado": "ude.my/UC-d7c1ec46-7810-4c97-b78d-bca721b00475",
+    "imagem_certificado": "https://drive.google.com/uc?export=download&id=1mKdZeTVwAuyUIfX51AFOU6JkT65Jgze0",
     "valido": true
   },
   {
-    "nome_curso": "Dominando as Ferramentas de Design UX/UI",
-    "duracao": "50 horas",
-    "instrutores": [
-      "Bruno Porto",
-      "UX/UI Design Brasil"
-    ],
-    "data_conclusao": "2024-02-15",
-    "nome_aluno": "João Carlos Souza",
-    "numero_certificado": "UC-d7890123-4567-89ab-cdef-0123456789ab",
-    "url_certificado": "ude.my/UC-d7890123-4567-89ab-cdef-0123456789ab",
-    "imagem_certificado": "https://drive.google.com/file/d/19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx/view?usp=drive_link",
-    "valido": true
-  },
-  {
-    "nome_curso": "Aprenda Desenvolvimento Android com Kotlin",
-    "duracao": "70 horas",
-    "instrutores": [
-      "André Almeida",
-      "Android Developer"
-    ],
-    "data_conclusao": "2024-04-08",
-    "nome_aluno": "Ana Beatriz Santos",
-    "numero_certificado": "UC-e1234567-890a-bcde-f123-4567890abcde",
-    "url_certificado": "ude.my/UC-e1234567-890a-bcde-f123-4567890abcde",
-    "imagem_certificado": "https://drive.google.com/file/d/19OwaNFjChUE9TM9Y_L8Vj-gTnmoibBkx/view?usp=drive_link",
+    "nome_curso": "CURSO VUEJS COMPLETO",
+    "duracao": "5 horas",
+    "instrutores": "Guilherme Cherem Grillo",
+    "plataforma": "Danki Code",
+    "data_conclusao": "2023-31-01",
+    "nome_aluno": "Sabrina Vailante",
+    "numero_certificado": "e4be62bf-5b34-4948-bc4f-3e567f704211",
+    "url_certificado": "https://cursos.dankicode.com/api/certificados/e4be62bf-5b34-4948-bc4f-3e567f704211",
+    "imagem_certificado": "https://drive.google.com/uc?export=download&id=1-OWHSs06GL3tc15-_jMeFY1Hrz60TFjH",
     "valido": true
   }
 ]

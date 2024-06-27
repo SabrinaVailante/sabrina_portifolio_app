@@ -35,11 +35,11 @@ class _MyProjectsViewState extends State<MyProjectsView> {
           Container(
             padding: EdgeInsets.all(20.0),
             child: Text(
-              loremIpsum(words: 30, paragraphs: 1),
+              "Gerador de Aleatórios\n\nEste é um projeto divertido desenvolvido em Flutter para te ajudar a gerar números aleatórios ou realizar sorteios de nomes de forma rápida e fácil. 🚀",
               textAlign: TextAlign.justify,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 12.0,
+                fontSize: 16.0,
               ),
             ),
           ),
@@ -65,7 +65,7 @@ class _MyProjectsViewState extends State<MyProjectsView> {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectDetailView()));
                         },
                         child: Image.asset(
-                          'assets/images/chatbot.png',
+                          'assets/screens/geradorDeAleatorios.png',
                           fit: BoxFit
                               .cover, // Ajuste para ocupar todo o espaço disponível
                         ),

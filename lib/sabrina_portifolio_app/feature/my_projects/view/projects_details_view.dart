@@ -20,7 +20,7 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(0, 0, 0, 1.0),
       appBar: const SabrinaAppBarWidget(
-          icon: Icon(Icons.arrow_back), title: "Projeto 1", actions: []),
+          icon: Icon(Icons.arrow_back), title: "Gerador de Aleatórios", actions: []),
       body: Column(
         children: [
           Expanded(
@@ -30,7 +30,7 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
                   padding: const EdgeInsets.only(top: 0),
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/images/chatbot.png',
+                    'assets/screens/gerador.png',
                     fit: BoxFit.fitWidth,
                   ),
                 ),
@@ -55,16 +55,16 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
                   padding: EdgeInsets.only(top: 380),
                   child: Column(
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
-                          "Nome do prejeto",
+                          "Gerador de Aleatórios",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8),
                         child: Divider(thickness: 0.5, color: Colors.white),
                       ),
@@ -75,10 +75,7 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
                             child: Column(
                               children: [
                                 Text(
-                                  "🌱 Desenvolvedora Mobile em desenvolvimento!\n"
-                                  "💼 Trabalho como Desenvolvedora Mobile na Defensoria Publica de Minas Gerais.\n"
-                                  "🎓 Estudante de Sistemas de Informação na Newton Paiva.\n"
-                                  "📖 Aprendendo Desenvolvimento Mobile em Flutter.\n",
+                                  "Este é um projeto divertido desenvolvido em Flutter para te ajudar a gerar números aleatórios ou realizar sorteios de nomes de forma rápida e fácil. 🚀\n\nFuncionalidades:\n\n* Gerador de Números Aleatórios: Gere números aleatórios com um toque de um botão!\n* Sorteio de Nomes: Precisa sortear quem vai fazer o café? Não se preocupe, o Gerador de Aleatórios está aqui para te ajudar!\n\nMotivação:\n\nEste projeto foi desenvolvido com o intuito de explorar e aprender mais sobre o uso de Shared Preferences em Flutter. Além disso, também queríamos criar uma ferramenta divertida e útil para quem precisa de uma ajudinha extra em sorteios ou decisões aleatórias do dia a dia.",
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     color: Colors.white,
@@ -86,13 +83,6 @@ class _ProjectDetailViewState extends State<ProjectDetailView> {
                                     fontFamily: "RobotoMono-Regular",
                                   ),
                                 ),
-                                Text(descricao,
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 15,
-                                      fontFamily: "RobotoMono-Regular",
-                                    )),
                               ],
                             ),
                           ),

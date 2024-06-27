@@ -49,6 +49,8 @@ dependencies:
   path_provider: ^2.1.3
   open_file: ^3.3.2
   json_annotation: ^4.9.0
+  http: ^1.2.0
+  flutter_pdfview: ^1.3.2
 
 dev_dependencies:
   flutter_test:
@@ -110,7 +112,10 @@ flutter:
     - assets/images/foto1.png
     - assets/images/splashscreen.png
     - assets/images/img.png
+    - assets/screens/geradorDeAleatorios.png
+    - assets/screens/gerador.png
     - assets/images/chatbot.png
+    - assets/images/DefensoriaLogo.png
     - assets/fonts/Montserrat-Italic-VariableFont_wght.ttf
     - assets/fonts/Montserrat-VariableFont_wght.ttf
     - assets/fonts/RobotoMono-Regular.ttf
@@ -118,6 +123,7 @@ flutter:
     - assets/icons/
     - assets/cetificates/Net6.jpg
     - assets/certificados.json
+    - assets/cetificates/Currículo_Sabrina Vailante_2024.05.pdf
 
 
 
