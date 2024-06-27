@@ -16,15 +16,15 @@ https://www.figma.com/file/rEtRHDbbkXDVFjR8n1uQJn/Untitled?type=design&node-id=1
 ## Capturas de Tela
 <div style="display:flex; justify-content:space-around;">
 <img src="assets/screens/Perfil.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/contatos.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/sobremim.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/hobbies.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/JornadaProfissional.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/experienciaDetalhes.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/formacaoAcademica.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/certificadosDetalhes.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/projetos.png" alt="Screenshot 1" width="100"/>
-<img src="assets/screens/projetosDetalhes.png" alt="Screenshot 1" width="100"/>
+<img src="assets/screens/contatos.png" alt="Screenshot 2" width="100"/>
+<img src="assets/screens/sobremim.png" alt="Screenshot 3" width="100"/>
+<img src="assets/screens/hobbies.png" alt="Screenshot 4" width="100"/>
+<img src="assets/screens/JornadaProfissional.png" alt="Screenshot 5" width="100"/>
+<img src="assets/screens/experienciaDetalhes.png" alt="Screenshot 6" width="100"/>
+<img src="assets/screens/formacaoAcademica.png" alt="Screenshot 7" width="100"/>
+<img src="assets/screens/certificadosDetalhes.png" alt="Screenshot 8" width="100"/>
+<img src="assets/screens/projetos.png" alt="Screenshot 9" width="100"/>
+<img src="assets/screens/projetosDetalhes.png" alt="Screenshot 10" width="100"/>
 </div>
 
 
