@@ -1,17 +1,14 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
-import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/data/models/certificates.model.dart';
+import 'package:flutter/services.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/certificate_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/widgets/card_certificado_widget.dart';
 import '../../../core/widgets/sabrina_app_bar.widget.dart';
-import 'package:http/http.dart' as http;
+import '../data/models/certificates.model.dart';
+import '../widgets/download_Button_Widget.dart';
+import '../widgets/elevate_button_widget.dart';
 
 class AcademicBackgroundView extends StatefulWidget {
-  final String curriculoPath =
-      'assets/cetificates/Currículo_Sabrina Vailante_2024.05.pdf';
-
   const AcademicBackgroundView({Key? key}) : super(key: key);
 
   @override
@@ -20,11 +17,63 @@ class AcademicBackgroundView extends StatefulWidget {
 
 class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
   List<CardCertificateWidget> _cardsCertificates = <CardCertificateWidget>[];
+  List<CardCertificateWidget> _filteredCertificates = <CardCertificateWidget>[];
+  final String curriculoPath = 'assets/curriculoSabrinaVailante202405.pdf';
+
+  final TextEditingController _nomeDoCursoController = TextEditingController();
+  final TextEditingController _instituicaoController = TextEditingController();
+  final TextEditingController _dataInicioController = TextEditingController();
+  final TextEditingController _dataFimController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _loadCertificates();
+  }
+
+  @override
+  void dispose() {
+    _nomeDoCursoController.dispose();
+    _instituicaoController.dispose();
+    _dataInicioController.dispose();
+    _dataFimController.dispose();
+    super.dispose();
+  }
+
+  void _filterCertificates() {
+    String nomeCurso = _nomeDoCursoController.text.toLowerCase();
+    String instituicao = _instituicaoController.text.toLowerCase();
+    String dataInicio = _dataInicioController.text;
+    String dataFim = _dataFimController.text;
+
+    setState(() {
+      _filteredCertificates = _cardsCertificates.where((certificado) {
+        bool matchesNomeCurso = nomeCurso.isEmpty ||
+            certificado.title1.toLowerCase().contains(nomeCurso);
+        bool matchesInstituicao = instituicao.isEmpty ||
+            certificado.title2.toLowerCase().contains(instituicao);
+        bool matchesDataInicio = true;
+        bool matchesDataFim = true;
+
+        if (dataInicio.isNotEmpty) {
+          DateTime dataInicioDate =
+              DateTime.tryParse(dataInicio) ?? DateTime(0);
+          matchesDataInicio = certificado.dateEnd.isAfter(dataInicioDate) ||
+              certificado.dateEnd.isAtSameMomentAs(dataInicioDate);
+        }
+
+        if (dataFim.isNotEmpty) {
+          DateTime dataFimDate = DateTime.tryParse(dataFim) ?? DateTime.now();
+          matchesDataFim = certificado.dateEnd.isBefore(dataFimDate) ||
+              certificado.dateEnd.isAtSameMomentAs(dataFimDate);
+        }
+
+        return matchesNomeCurso &&
+            matchesInstituicao &&
+            matchesDataInicio &&
+            matchesDataFim;
+      }).toList();
+    });
   }
 
   @override
@@ -41,14 +90,17 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildDownloadButton(),
-            _buildTextField(label: 'Nome do curso'),
-            _buildTextField(label: 'Instituição de ensino'),
+            DownloadButton(label: "Currículo", arquivo: curriculoPath),
+            _buildTextField(
+                controller: _nomeDoCursoController, label: 'Nome do curso'),
+            _buildTextField(
+                controller: _instituicaoController,
+                label: 'Instituição de ensino'),
             _buildDateRangeInput(),
             _buildButtonsRow(),
             const Divider(thickness: 0.4, color: Colors.white),
             Expanded(
-              child: _buildCertificatesList(context),
+              child: _buildCertificatesList(),
             ),
           ],
         ),
@@ -56,31 +108,19 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
     );
   }
 
-  Widget _buildDownloadButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        const Text(
-          "Baixar Currículo",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.download,
-              color: Color.fromRGBO(36, 166, 173, 1.0)),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildTextField({required String label}) {
+  Widget _buildTextField(
+      {required TextEditingController controller, required String label}) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: const TextStyle(color: Colors.white),
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: Color.fromRGBO(39, 161, 172, 1.0)),
+        ),
       ),
       style: const TextStyle(color: Colors.white),
     );
@@ -91,12 +131,14 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
       children: [
         Expanded(
           flex: 8,
-          child: _buildTextField(label: 'Data de início'),
+          child:
+              _buildTextField(controller: _dataInicioController, label: 'Data de inicio'),
         ),
         const Spacer(),
         Expanded(
           flex: 8,
-          child: _buildTextField(label: 'Data de término'),
+          child: _buildTextField(
+              controller: _dataFimController, label: 'Data de término'),
         ),
       ],
     );
@@ -108,60 +150,36 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          _buildElevatedButton(
-              label: 'Pesquisar',
-              color: const Color.fromRGBO(36, 167, 174, 1.0)),
+          ElevateButtonWidget(
+            label: 'Pesquisar',
+            color: const Color.fromRGBO(36, 167, 174, 1.0),
+            onPressed: _filterCertificates,
+          ),
           const SizedBox(width: 10),
-          _buildElevatedButton(
-              label: 'Limpar', color: const Color.fromRGBO(33, 139, 148, 1.0)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildElevatedButton({required String label, required Color color}) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        elevation: 2,
-        primary: color,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-        ),
-      ),
-      child: Text(
-        label,
-        style: const TextStyle(color: Colors.black),
-      ),
-    );
-  }
-
-  Widget _buildCertificatesList(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(36, 167, 174, 1.0),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-        ),
-        title: const Text(
-          'Certificados',
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _cardsCertificates.length,
-              itemBuilder: (context, index) {
-                return _cardsCertificates[index];
-              },
-            ),
+          ElevateButtonWidget(
+            label: 'Limpar',
+            color: const Color.fromRGBO(33, 139, 148, 1.0),
+            onPressed: () {
+              _nomeDoCursoController.clear();
+              _instituicaoController.clear();
+              _dataInicioController.clear();
+              _dataFimController.clear();
+              setState(() {
+                _filteredCertificates = _cardsCertificates;
+              });
+            },
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildCertificatesList() {
+    return ListView.builder(
+      itemCount: _filteredCertificates.length,
+      itemBuilder: (context, index) {
+        return _filteredCertificates[index];
+      },
     );
   }
 
@@ -177,8 +195,7 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
           title1: certificado.nomeCurso,
           title2: certificado.plataforma,
           title3: certificado.duracao,
-          dateEnd: DateTime.parse(
-              certificado.dataConclusao ?? DateTime.now().toString()),
+          dateEnd: DateTime.parse(certificado.dataConclusao),
           function: () {
             Navigator.push(
               context,
@@ -195,6 +212,7 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
 
       setState(() {
         _cardsCertificates = listaCertificados;
+        _filteredCertificates = listaCertificados; // Inicialmente, sem filtro
       });
     } catch (e) {
       print('Erro ao carregar os certificados: $e');

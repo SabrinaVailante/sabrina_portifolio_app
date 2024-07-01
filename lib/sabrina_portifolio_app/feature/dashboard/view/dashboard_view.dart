@@ -16,11 +16,11 @@ class _DashboardViewState extends State<DashboardView> {
   int _currentIndex = 2;
 
   final List<Widget> _pages = [
-     HobbiesView(),
-    const AcademicBackgroundView(),
-    const ProfileView(),
-     CareerJourneyView(),
-     MyProjectsView(),
+    HobbiesView(),
+    AcademicBackgroundView(),
+    ProfileView(),
+    CareerJourneyView(),
+    MyProjectsView(),
   ];
 
   @override

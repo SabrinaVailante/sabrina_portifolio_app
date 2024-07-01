@@ -44,7 +44,7 @@ class ContactsView extends StatelessWidget {
               icon: Icons.message,
               title: 'WhatsApp',
               contact: '+55998357032',
-              onTap: () => launch('https://wa.me/55998357032'),
+              onTap: () => launch('https://wa.me/31998357032'),
             ),
             ContactCard(
               icon: Icons.phone,

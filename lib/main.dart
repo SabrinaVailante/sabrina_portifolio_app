@@ -13,9 +13,15 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
       title: "Meu Portfólio",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashScreenView(),
+        primaryColor: const Color.fromRGBO(39, 161, 172, 1.0),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color.fromRGBO(39, 161, 172, 1.0),
+        )
+
+
+       ),
+
+      home : const SplashScreenView(),
     );
   }
 }

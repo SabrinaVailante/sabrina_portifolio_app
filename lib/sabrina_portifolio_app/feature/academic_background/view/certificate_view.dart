@@ -1,21 +1,23 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Para rootBundle
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/core/widgets/sabrina_app_bar.widget.dart';
+
+import '../../../core/services/download.dart';
 
 class CertificateView extends StatefulWidget {
   final String imagePath;
   final String title;
 
-  const CertificateView({super.key, required this.imagePath, required this.title});
+  const CertificateView(
+      {super.key, required this.imagePath, required this.title});
 
   @override
   State<CertificateView> createState() => _CertificateViewState();
 }
 
 class _CertificateViewState extends State<CertificateView> {
+  final DownloadManager _downloadManager = DownloadManager();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +43,8 @@ class _CertificateViewState extends State<CertificateView> {
                 ),
                 IconButton(
                   onPressed: () {
-                    _downloadCertificate(widget.imagePath);
+                    _downloadManager.downloadFromDrive(
+                        widget.imagePath, widget.title);
                   },
                   icon: const Icon(
                     Icons.download,
@@ -55,26 +58,14 @@ class _CertificateViewState extends State<CertificateView> {
               child: Container(
                 height: 550,
                 width: 350,
-                child: Image.network(widget.imagePath,),
+                child: Image.network(
+                  widget.imagePath,
+                ),
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Future<void> _downloadCertificate(String imagePath) async {
-    try {
-      final directory = await getTemporaryDirectory();
-      final filePath = '${directory.path}/${widget.title}.jpg';
-      final byteData = await rootBundle.load(imagePath);
-      final file = File(filePath);
-      await file.writeAsBytes(byteData.buffer.asUint8List());
-
-      await OpenFile.open(filePath);
-    } catch (e) {
-      print("Erro ao baixar o certificado: $e");
-    }
   }
 }

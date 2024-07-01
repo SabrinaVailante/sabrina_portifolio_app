@@ -21,15 +21,10 @@ class ProfileView extends StatelessWidget {
                   builder: (context, constraints) {
                     double width = constraints.maxWidth;
                     double height = constraints.maxHeight;
-
                     // Calcula a posição e tamanho relativos usando porcentagens
-                    double topPosition =
-                        height * 0.170; // 20% da altura do contêiner
-                    double leftPosition =
-                        width * 0.19; // 19% da largura do contêiner
-                    double imageWidth =
-                        width * 0.60; // 60% da largura do contêiner
-
+                    double topPosition = height * 0.170; // altura do contêiner
+                    double leftPosition = width * 0.19; //  largura do contêiner
+                    double imageWidth = width * 0.60; //  largura do contêiner
                     return Stack(
                       alignment: Alignment.center,
                       children: [
@@ -193,13 +188,9 @@ class ProfileView extends StatelessWidget {
                                     fontSize: 15, color: Colors.white)))),
                     const SizedBox(height: 15),
                     ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: const Color.fromRGBO(36, 167, 174, 1.0),
-                          onPrimary: const Color.fromRGBO(196, 251, 255, 1.0),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 50,
-                            vertical: 20,
-                          ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              const Color.fromRGBO(36, 167, 174, 1.0)),
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -208,7 +199,10 @@ class ProfileView extends StatelessWidget {
                                 builder: (context) => ContactsView()),
                           );
                         },
-                        child: const Text('Contacte-me')),
+                        child: const Text('Contacte-me',
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 255, 255, 1.0),
+                            ))),
                   ],
                 ),
               ),
