@@ -6,7 +6,7 @@ class CardCertificateWidget extends StatelessWidget {
   final String title1;
   final String title2;
   final String title3;
-  final DateTime dateEnd;
+  final String dateEnd;
   final VoidCallback function;
 
   const CardCertificateWidget({
@@ -21,11 +21,16 @@ class CardCertificateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String formattedDateEnd = DateFormat('MM/yyyy').format(dateEnd);
+    DateTime parsedDateEnd = DateFormat("yyyy-MM-dd").parse(dateEnd);
+    String formattedDateEnd = DateFormat('MM/yyyy').format(parsedDateEnd);
 
     return Padding(
-      padding:
-          const EdgeInsets.only(top: 3.0, bottom: 0, left: 3.0, right: 3.0),
+      padding: const EdgeInsets.only(
+        top: 3.0,
+        bottom: 0,
+        left: 3.0,
+        right: 3.0,
+      ),
       child: Card(
         color: const Color.fromRGBO(36, 167, 174, 0.5),
         shape: RoundedRectangleBorder(

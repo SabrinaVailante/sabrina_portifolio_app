@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/data/models/certificates_Back4Ap_model.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/view/certificate_view.dart';
 import 'package:sabrina_protifolio_app/sabrina_portifolio_app/feature/academic_background/widgets/card_certificado_widget.dart';
 import '../../../core/widgets/sabrina_app_bar.widget.dart';
-import '../data/models/certificates.model.dart';
+import '../data/repositories/certificates_back4App_repository.dart';
 import '../widgets/download_Button_Widget.dart';
 import '../widgets/elevate_button_widget.dart';
 
@@ -16,19 +15,29 @@ class AcademicBackgroundView extends StatefulWidget {
 }
 
 class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
-  List<CardCertificateWidget> _cardsCertificates = <CardCertificateWidget>[];
-  List<CardCertificateWidget> _filteredCertificates = <CardCertificateWidget>[];
   final String curriculoPath = 'assets/curriculoSabrinaVailante202405.pdf';
-
   final TextEditingController _nomeDoCursoController = TextEditingController();
   final TextEditingController _instituicaoController = TextEditingController();
   final TextEditingController _dataInicioController = TextEditingController();
   final TextEditingController _dataFimController = TextEditingController();
+  final TextEditingController _plataformaController = TextEditingController();
+  final TextEditingController _nomeDoAlunoController = TextEditingController();
+  final TextEditingController _numeroCertificadoController = TextEditingController();
+  final TextEditingController _urlCertificadoController = TextEditingController();
+  final TextEditingController _imagemCertificadoController = TextEditingController();
+  final TextEditingController _validoController = TextEditingController();
+  final TextEditingController _instrutoresController = TextEditingController();
+  final TextEditingController _duracaoController = TextEditingController();
+  List<CardCertificateWidget> _cardsCertificates = <CardCertificateWidget>[];
+  List<CardCertificateWidget> _filteredCertificates = <CardCertificateWidget>[];
+  final CertificatesBack4AppRepository _certificatesBack4AppRepository =
+  CertificatesBack4AppRepository();
+  CertificatesBack4AppModel _certificates = CertificatesBack4AppModel([]);
 
   @override
   void initState() {
     super.initState();
-    _loadCertificates();
+    obterCertificados();
   }
 
   @override
@@ -38,42 +47,6 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
     _dataInicioController.dispose();
     _dataFimController.dispose();
     super.dispose();
-  }
-
-  void _filterCertificates() {
-    String nomeCurso = _nomeDoCursoController.text.toLowerCase();
-    String instituicao = _instituicaoController.text.toLowerCase();
-    String dataInicio = _dataInicioController.text;
-    String dataFim = _dataFimController.text;
-
-    setState(() {
-      _filteredCertificates = _cardsCertificates.where((certificado) {
-        bool matchesNomeCurso = nomeCurso.isEmpty ||
-            certificado.title1.toLowerCase().contains(nomeCurso);
-        bool matchesInstituicao = instituicao.isEmpty ||
-            certificado.title2.toLowerCase().contains(instituicao);
-        bool matchesDataInicio = true;
-        bool matchesDataFim = true;
-
-        if (dataInicio.isNotEmpty) {
-          DateTime dataInicioDate =
-              DateTime.tryParse(dataInicio) ?? DateTime(0);
-          matchesDataInicio = certificado.dateEnd.isAfter(dataInicioDate) ||
-              certificado.dateEnd.isAtSameMomentAs(dataInicioDate);
-        }
-
-        if (dataFim.isNotEmpty) {
-          DateTime dataFimDate = DateTime.tryParse(dataFim) ?? DateTime.now();
-          matchesDataFim = certificado.dateEnd.isBefore(dataFimDate) ||
-              certificado.dateEnd.isAtSameMomentAs(dataFimDate);
-        }
-
-        return matchesNomeCurso &&
-            matchesInstituicao &&
-            matchesDataInicio &&
-            matchesDataFim;
-      }).toList();
-    });
   }
 
   @override
@@ -98,7 +71,39 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
                 label: 'Instituição de ensino'),
             _buildDateRangeInput(),
             _buildButtonsRow(),
-            const Divider(thickness: 0.4, color: Colors.white),
+            const Divider(thickness: 1, color: Colors.white),
+            Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 36, 167, 174),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20)),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 15),
+                      child: Text(
+                        'Certificados',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 25),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 15),
+                      child: Icon(
+                        Icons.add,
+                      )
+                    )
+                  ],
+                )),
             Expanded(
               child: _buildCertificatesList(),
             ),
@@ -106,6 +111,58 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
         ),
       ),
     );
+  }
+
+  void obterCertificados() async {
+    _certificates = await _certificatesBack4AppRepository.obterCertificados();
+    setState(() {
+      _cardsCertificates = _certificates.results
+          .map((certificado) =>
+          CardCertificateWidget(
+            title1: certificado.nomeCurso!,
+            title2: certificado.plataforma!,
+            title3: certificado.instrutores!,
+            dateEnd: certificado.dataConclusao!,
+            imagePath: certificado.imagemCertificado!,
+            function: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CertificateView(
+                        imagePath: certificado.imagemCertificado!,
+                        title: certificado.nomeCurso!,
+                      ),
+                ),
+              );
+            },
+          ))
+          .toList();
+      _filteredCertificates = _cardsCertificates;
+    });
+  }
+
+  void filterCertificates() {
+    String nomeCurso = _nomeDoCursoController.text.toLowerCase();
+    String instituicao = _instituicaoController.text.toLowerCase();
+    String dataInicio = _dataInicioController.text;
+    String dataFim = _dataFimController.text;
+
+    setState(() {
+      _filteredCertificates = _cardsCertificates.where((certificado) {
+        bool matchesNomeCurso = nomeCurso.isEmpty ||
+            certificado.title1.toLowerCase().contains(nomeCurso);
+        bool matchesInstituicao = instituicao.isEmpty ||
+            certificado.title2.toLowerCase().contains(instituicao);
+        bool matchesDataInicio = true;
+        bool matchesDataFim = true;
+
+        return matchesNomeCurso &&
+            matchesInstituicao &&
+            matchesDataInicio &&
+            matchesDataFim;
+      }).toList();
+    });
   }
 
   Widget _buildTextField(
@@ -131,8 +188,8 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
       children: [
         Expanded(
           flex: 8,
-          child:
-              _buildTextField(controller: _dataInicioController, label: 'Data de inicio'),
+          child: _buildTextField(
+              controller: _dataInicioController, label: 'Data de inicio'),
         ),
         const Spacer(),
         Expanded(
@@ -151,10 +208,14 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           ElevateButtonWidget(
-            label: 'Pesquisar',
-            color: const Color.fromRGBO(36, 167, 174, 1.0),
-            onPressed: _filterCertificates,
-          ),
+              label: 'Pesquisar',
+              color: const Color.fromRGBO(36, 167, 174, 1.0),
+              onPressed: () {
+                filterCertificates();
+                setState(() {
+                  _filteredCertificates = _filteredCertificates;
+                });
+              }),
           const SizedBox(width: 10),
           ElevateButtonWidget(
             label: 'Limpar',
@@ -176,46 +237,133 @@ class _AcademicBackgroundViewState extends State<AcademicBackgroundView> {
 
   Widget _buildCertificatesList() {
     return ListView.builder(
-      itemCount: _filteredCertificates.length,
-      itemBuilder: (context, index) {
-        return _filteredCertificates[index];
-      },
-    );
+        itemCount: _filteredCertificates.length,
+        itemBuilder: (context, index) {
+          return _filteredCertificates[index];
+        });
   }
 
-  Future<void> _loadCertificates() async {
-    try {
-      String jsonString =
-          await rootBundle.loadString('assets/certificados.json');
-      List<dynamic> listaJson = jsonDecode(jsonString);
-      List<CardCertificateWidget> listaCertificados = listaJson.map((e) {
-        CertificatesModel certificado = CertificatesModel.fromJson(e);
-        return CardCertificateWidget(
-          imagePath: certificado.imagemCertificado,
-          title1: certificado.nomeCurso,
-          title2: certificado.plataforma,
-          title3: certificado.duracao,
-          dateEnd: DateTime.parse(certificado.dataConclusao),
-          function: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CertificateView(
-                  imagePath: certificado.imagemCertificado,
-                  title: certificado.nomeCurso,
+   addCertificate() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Adicionar Certificado'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: _nomeDoCursoController,
+                decoration: const InputDecoration(
+                  labelText: 'Curso',
                 ),
               ),
-            );
-          },
-        );
-      }).toList();
+              TextField(
+                controller: _duracaoController,
+                decoration: const InputDecoration(
+                  labelText: 'Duração',
+                ),
+              ),
+              TextField(
+                controller: _instrutoresController,
+                decoration: const InputDecoration(
+                  labelText: 'Instrutores',
+                ),
+              ),
+              TextField(
+                controller: _plataformaController,
+                decoration: const InputDecoration(
+                  labelText: 'Instituição',
+                ),
+              ),
+              TextField(
+                controller: _dataFimController,
+                decoration: const InputDecoration(
+                  labelText: 'Data de Conclusão',
+                ),
+              ),
+              TextField(
+                controller: _nomeDoAlunoController,
+                decoration: const InputDecoration(
+                  labelText: 'Aluno',
+                ),
+              ),
+              TextField(
+                controller: _numeroCertificadoController,
+                decoration: const InputDecoration(
+                  labelText: 'Numero do certificado',
+                ),
+              ),
+              TextField(
+                controller: _urlCertificadoController,
+                decoration: const InputDecoration(
+                  labelText: 'link do certificado',
+                ),
+              ),
+              TextField(
+                controller: _imagemCertificadoController,
+                decoration: const InputDecoration(
+                  labelText: 'Certificado',
+                ),
+              ),
+              TextField(
+                controller: _validoController,
+                decoration: const InputDecoration(
+                  labelText: 'Valido',
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+            child: const Text('Adicionar'),
+              onPressed: () {
+                String nomeDoAluno = _nomeDoAlunoController.text;
+                String nomeCurso = _nomeDoCursoController.text;
+                String duracao = _duracaoController.text;
+                String instrutores = _instrutoresController.text;
+                String dataConclusao = _dataFimController.text;
+                String plataforma = _plataformaController.text;
+                String urlCertificado = _urlCertificadoController.text;
+                String imagemCertificado = _imagemCertificadoController.text;
+                String numeroCertificado = _numeroCertificadoController.text;
+                String valido = _validoController.text;
 
-      setState(() {
-        _cardsCertificates = listaCertificados;
-        _filteredCertificates = listaCertificados; // Inicialmente, sem filtro
-      });
-    } catch (e) {
-      print('Erro ao carregar os certificados: $e');
-    }
+                final certificate = Certificates(
+                  nomeCurso: _nomeDoCursoController.text,
+                  duracao: _duracaoController.text,
+                  instrutores: _instrutoresController.text,
+                  plataforma: _plataformaController.text,
+                  dataConclusao: _dataFimController.text,
+                  nomeAluno: _nomeDoAlunoController.text,
+                  numeroCertificado: _numeroCertificadoController.text,
+                  urlCertificado: _urlCertificadoController.text,
+                  imagemCertificado: _imagemCertificadoController.text,
+                  valido: true,
+                );
+
+                setState(() {
+                  _cardsCertificates.add(CardCertificateWidget(
+                      imagePath: imagemCertificado,
+                      title1: nomeCurso,
+                      title2: plataforma,
+                      title3: duracao,
+                      dateEnd: dataConclusao,
+                      function: () {
+                        Navigator.of(context).pop();
+                        addCertificate();
+                      }));
+                Navigator.of(context).pop();
+
+                });},),],
+        );
+      },
+    );
   }
 }
